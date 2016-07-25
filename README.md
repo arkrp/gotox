@@ -35,19 +35,20 @@ some other things that are essintial to the specification:
 
 
 order of operations
+
 1. all inputs are sent to the top of the action quene as cell values
 
 2. the bottom of the action que is called
 
 3. the following operations happen to the cell that was called
 
-a. if it has an output then send the output to the top of the output quene
+  a. if it has an output then send the output to the top of the output quene
 
-b. sets value at the position in the memory array specified by var_write of the cell to
+  b. sets value at the position in the memory array specified by var_write of the cell to
 
    value at the position in the memory array specified by var_read of the cell
    
-c. next send sometiong to actionq dependent on the value at the memory position specified by the cell's var_cond
+  c. next send sometiong to actionq dependent on the value at the memory position specified by the cell's var_cond
 
    if the memory reads 0 then it sends var_A of the cell to the action quene
    
