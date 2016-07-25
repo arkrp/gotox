@@ -36,15 +36,26 @@ some other things that are essintial to the specification:
 
 order of operations
 1. all inputs are sent to the top of the action quene as cell values
+
 2. the bottom of the action que is called
+
 3. the following operations happen to the cell that was called
+
 a. if it has an output then send the output to the top of the output quene
+
 b. sets value at the position in the memory array specified by var_write of the cell to
+
    value at the position in the memory array specified by var_read of the cell
+   
 c. next send sometiong to actionq dependent on the value at the memory position specified by the cell's var_cond
+
    if the memory reads 0 then it sends var_A of the cell to the action quene
+   
    if the memory reads 1 then it sends var_B of the cell to the action quene
    if 2 then it sends both
+   
    if three then sends none
+   
 4. waits to let host program send input and collect output
+
 5. loops back to step two and continues untill host program stops it
