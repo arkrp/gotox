@@ -26,6 +26,10 @@
 	changed call() to incall()
 	made user friendly call()
 	the empty() thing may be due to a reserved word or something
+73116
+	cleaned up some stuff
+	worked on documentation
+	added act() function
 """
 #user function list:
 #call(), getaction()
@@ -48,16 +52,26 @@ class agoto:
 	def incall(se,a,input):#make event in the input quene this is a library function
 		input.append(a)
 #print actionq
+	def act(se,x=1):#makes the nueral network go for an ammount of actions
+		c=0
+		while(c<x):
+			t=se.event(se.actionq)
+			#print("T"+str(t))
+			if(t=="END"):
+				return(1) #returns 1 if finished
+			se.execell(t)
+			c=c+1
+		return(0)#returns 0 if unfinished
 	def event(se,input):#gets the next event in the quene supplied as input
 		x=0
 		if len(input)<>0:
 			x=input[0]
 			se.shift(input)
-		else:
-			x="END"
-			#print("returning end")
-		return(x)
-
+		else:                           #   #  ###  #   #  ###   ###
+			x="END"                 ##  #  #     # #   #    #   #
+			#print("returning end") # # #  ###    #    ###  #     was bored
+		return(x)                       #  ##  #     # #   #    #   #     so he wrote this
+                                                #   #  ###  #   #  ###   ###
 	def shift(se,input):
 		c=1
 		while(c<len(input)):
@@ -66,9 +80,9 @@ class agoto:
 			c=c+1
 		del input[-1]
 	#output=[]#                    	make a way to access outpt and send input to make this a library
-	def getaction(se):#library function gets output
+	def getoutput(se):#library function gets output
 		return(se.event(se.output))
-	def getsomeactions(se):
+	def getsomeoutputs(se):
 		xd=se.output[:]
 		#output=[]
 		#empty()#for some reason putting output =[] dosnt work here with this interpreter
@@ -83,17 +97,19 @@ class agoto:
 			welcome to gotox a programing language designed specificaly for artificial intelligence applications
 			is should be noted that even the person who made this cant think of another use for it so it would be ill advised to use it for anythin gelse
 
-
+                        there are several basic functions in this library including:
+			getoutput()
+			getsomeoutputs()
 			"""
 
 	#def empty(XD):#emptys output
 		#XD=[]
 	def call(se,a):
-		#print(se)
+		#print(a)
 		se.incall(a,se.actionq)
 	memory=[0,1,2,3]
-	memsize=8
-	memory+=([0]*(memsize-4))
+	#memsize=8
+	memory+=([0]*(4))
 	'''
 	#parts of cells
 	#this is the code to be interpreted there will be a better entry system later
@@ -139,21 +155,24 @@ class agoto:
 
 f= agoto()
 f.call(0)  #initial call
-counter=0
-looping=1
-while (counter<10 and (looping)):
-	x=f.event(f.actionq)
+#counter=0
+#looping=1
+#while (counter<10 and (looping)):
+#	x=f.event(f.actionq)
 	
 	#print("running "+str(x))
-	if x=="END":
-		looping=0
-		print(f.memory)
-		print("ending")
-	else:
-		f.execell(x)
+#	if x=="END":
+#		looping=0
+#		print(f.memory)
+#		print("ending")
+#	else:
+#		f.execell(x)
 	#execell(event())
-	counter=counter+1
+#	counter=counter+1
 #print memory
+#while(not f.act()):
+#	pass
+f.act(20)
 #call(1)
 #call(2)
 #call(3)
@@ -161,12 +180,16 @@ while (counter<10 and (looping)):
 #print(event())
 #print(event())
 #print(event())
-print(f.output)
-print(f.getsomeactions())
-print(f.getaction())
-print(f.getaction())
-print(f.getaction())
-print(f.getaction())
+#print(f.output)
+print(f.getoutput())
+
+print(f.getsomeoutputs())
+print(f.getoutput())
+print(f.getoutput())
+print(f.getoutput())
+#print(f.getaction())
+#print(f.getaction())
+#print(f.getaction())
 #empty()
 
 print(f.output)
