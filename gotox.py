@@ -30,6 +30,12 @@
 	cleaned up some stuff
 	worked on documentation
 	added act() function
+80216
+	modifiesd default memory
+	made setcode()
+80316
+	made it standard for ouputs to be numbers
+	this will make it mutch more usefull  with evolutionary ai stuff
 """
 #user function list:
 #call(), getaction()
@@ -72,6 +78,8 @@ class agoto:
 			#print("returning end") # # #  ###    #    ###  #     was bored
 		return(x)                       #  ##  #     # #   #    #   #     so he wrote this
                                                 #   #  ###  #   #  ###   ###
+	def setcode(se,aray):
+		se.cells=aray
 	def shift(se,input):
 		c=1
 		while(c<len(input)):
@@ -100,6 +108,9 @@ class agoto:
                         there are several basic functions in this library including:
 			getoutput()
 			getsomeoutputs()
+			act()
+			call()
+			setcode()
 			"""
 
 	#def empty(XD):#emptys output
@@ -107,25 +118,26 @@ class agoto:
 	def call(se,a):
 		#print(a)
 		se.incall(a,se.actionq)
-	memory=[0,1,2,3]
+	memory=[0,1,2,3]*4
 	#memsize=8
-	memory+=([0]*(4))
-	'''
+	#memory[0]=3
+	#print(memory)
+	
 	#parts of cells
 	#this is the code to be interpreted there will be a better entry system later
-	varw=   [5,1,3]#variable to wright to
-	varr=   [1,1,3]#variable to read from
-	varcond=[0,5,3]#variable condition
+	#varw=   [5,1,3]#variable to wright to
+	#varr=   [1,1,3]#variable to read from
+	#varcond=[0,5,3]#variable condition
 	#this is the memory slot thet the condition is drawn from
 	#drawing a 0 results in cellT being executed : 1 results in cellF
 	#2 results in both : 3 results in neither
-	cellT=  [1,1,3]#first call cel
-	cellF=  [0,2,3]#second call cell
-	cellOUT=["cell 0 trigered","cell 1 triggered","hey look cell 2"]#cell output 0 if none
-	'''
+	#cellT=  [1,1,3]#first call cel
+	#cellF=  [0,2,3]#second call cell
+	#cellOUT=["cell 0 trigered","cell 1 triggered","hey look cell 2"]#cell output 0 if none
+	
 	#converting it to a more readable format
 	#it goes like this 0.varw, 1.varr, 2.varcond, 3.cellT, 4.cellF, 5.cellOUT
-	cells=[[5, 1, 0, 1, 0,"cell0"],[1,1,5,1,2,"cell1"],[3,3,3,3,3,"cell2"]]
+	cells=[[5, 1, 0, 1, 0,-10],[1,1,5,1,2,-11],[3,3,3,3,3,-12]]
 	def execell(se,cell):#execute the cell with this number
 	#order of operations is as follows
 	#output is given if any
@@ -153,8 +165,8 @@ class agoto:
 			#print("called"+str(se.cellF[cell])+"from"+str(cell))
 	#every thing below this point is a test not part of the api
 
-f= agoto()
-f.call(0)  #initial call
+#f= agoto()
+#f.call(0)  #initial call
 #counter=0
 #looping=1
 #while (counter<10 and (looping)):
@@ -172,7 +184,7 @@ f.call(0)  #initial call
 #print memory
 #while(not f.act()):
 #	pass
-f.act(20)
+#f.act(20)
 #call(1)
 #call(2)
 #call(3)
@@ -181,15 +193,15 @@ f.act(20)
 #print(event())
 #print(event())
 #print(f.output)
-print(f.getoutput())
+#print(f.getoutput())
 
-print(f.getsomeoutputs())
-print(f.getoutput())
-print(f.getoutput())
-print(f.getoutput())
+#print(f.getsomeoutputs())
+#print(f.getoutput())
+#print(f.getoutput())
+#print(f.getoutput())
 #print(f.getaction())
 #print(f.getaction())
 #print(f.getaction())
 #empty()
 
-print(f.output)
+#print(f.output)
