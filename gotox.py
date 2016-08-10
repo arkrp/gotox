@@ -36,6 +36,10 @@
 80316
 	made it standard for ouputs to be numbers
 	this will make it mutch more usefull  with evolutionary ai stuff
+UNKNOWN DATE
+	added basic mutator
+80916
+	made makmem() function	
 """
 #user function list:
 #call(), getaction()
@@ -78,8 +82,9 @@ class agoto:
 			#print("returning end") # # #  ###    #    ###  #     was bored
 		return(x)                       #  ##  #     # #   #    #   #     so he wrote this
                                                 #   #  ###  #   #  ###   ###
-	def setcode(se,aray):
+	def setcode(se,aray,length):##inputsarray as code and leng
 		se.cells=aray
+		makmem(length)
 	def shift(se,input):
 		c=1
 		while(c<len(input)):
@@ -115,6 +120,14 @@ class agoto:
 
 	#def empty(XD):#emptys output
 		#XD=[]
+	def makmem(se,a):#makes memory have a lengh of a
+		se.memory=[]
+		c=0
+		while(len(se.memory)<>a):
+			se.memory.append(c)
+			c=c+1
+			if(c==4):
+				c=0		
 	def call(se,a):
 		#print(a)
 		se.incall(a,se.actionq)
