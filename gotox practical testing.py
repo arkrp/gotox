@@ -51,7 +51,7 @@ scores=[0,0,0,0,0]
 #print(getlowestpos(scores))
 c2=0
 c=0
-while(c<2000):
+while(c<200):
     #while(c2<5):
     scores[c2]=testcode(aihopper[c2])
     print("AI"+str(c)+": "+str(aihopper[c2])+" score: "+str(scores[c2]))

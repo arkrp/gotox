@@ -166,7 +166,10 @@ class agoto:
 		if se.cells[cell][5]<>0:
 			#print(se.cellOUT[cell])
 			se.output.append(se.cells[cell][5])
-		se.memory[se.cells[cell][0]]=se.memory[se.cells[cell][1]]
+		try:
+			se.memory[se.cells[cell][0]]=se.memory[se.cells[cell][1]]
+		except KeyError:
+			raw_input("an error occured memory = "+str(se.memory))
 		a=0
 		b=0
 		if se.memory[se.cells[cell][2]]==0:
