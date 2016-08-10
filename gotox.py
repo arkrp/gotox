@@ -39,7 +39,12 @@
 UNKNOWN DATE
 	added basic mutator
 80916
-	made makmem() function	
+	made makmem() function
+	integrated makemem function
+	some functions now take tuples containging code and memory
+	did practical test of ai system found problems with the mutator
+	not working properly and causing bad syntax gotox code within 50 mutations
+	its 1:00 AM will work on this later
 """
 #user function list:
 #call(), getaction()
@@ -82,9 +87,10 @@ class agoto:
 			#print("returning end") # # #  ###    #    ###  #     was bored
 		return(x)                       #  ##  #     # #   #    #   #     so he wrote this
                                                 #   #  ###  #   #  ###   ###
-	def setcode(se,aray,length):##inputsarray as code and leng
+	def setcode(se,celldata):##inputsarray as code and length of memory
+                aray,length = celldata
 		se.cells=aray
-		makmem(length)
+		se.makmem(length)
 	def shift(se,input):
 		c=1
 		while(c<len(input)):

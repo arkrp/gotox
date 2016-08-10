@@ -6,7 +6,8 @@ import random
 # 1. memsize incrasing by 1
 # 2. a random cell being added
 #this is missing many features that will be added after a working prototype is made
-def mutate(code,outputs,memsize):# takes code amount of outputs there are and size of memory array
+def mutate(celldata,outputs):# takes code amount of outputs there are and size of memory array
+        code,memsize=celldata
 	code = code[:]
 	#seperates it from reference
 	if(random.randint(0,25)==0):
@@ -40,13 +41,14 @@ def randstf(inp):#gets random memory/output space given amount of spaces
 #print(newRcell(len(acode),outp,memsz))
 
 #test of this library
-acode=[[0,0,0,0,0,0],[0,0,0,0,0,0]]
-outp=6
-memsize=7
 
-while(True):
-	raw_input()
-	acode,memsize=mutate(acode,outp,memsize)
-	print(str(acode)+" "+str(memsize))
+#acode=[[0,0,0,0,0,0],[0,0,0,0,0,0]]
+#outp=6
+#memsize=7
+
+#while(True):
+#	raw_input()
+#	acode,memsize=mutate(acode,outp,memsize)
+#	print(str(acode)+" "+str(memsize))
 		
 	

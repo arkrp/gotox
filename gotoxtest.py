@@ -1,12 +1,16 @@
 import gotox
+import gotox_mutator
 f=gotox.agoto()
 #|varw|varr|varcond|c1|c2|out|
-f.setcode([[2,0,0,1,1,9],[0,0,3,0,0,1]])
+codedata = gotox_mutator.mutate(([[0,0,0,1,1,0],[0,0,1,0,0,1]],4),4)
+print(codedata)
+f.setcode(codedata)
 f.call(0)
-f.act(2)#ALWAYS REMEMBER TO ACT()
+f.act(20)#ALWAYS REMEMBER TO ACT()
 #print(f.getsomeoutputs())
 print(f.getoutput())
+print(f.getsomeoutputs())
 print(f.getoutput())
 print(f.memory)
-f.makmem(6)
-print(f.memory)
+#f.makmem(6)
+#print(f.memory)
