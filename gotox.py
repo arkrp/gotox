@@ -45,6 +45,11 @@ UNKNOWN DATE
 	did practical test of ai system found problems with the mutator
 	not working properly and causing bad syntax gotox code within 50 mutations
 	its 1:00 AM will work on this later
+8192016
+	bugfixes
+	fixed bug about cells being synchronised throught the mutate funcion
+	found a fix to the all cells completely synchronised bug
+	fixed the bug where all actionq and output would somehow synchronise
 """
 #user function list:
 #call(), getaction()
@@ -61,10 +66,17 @@ UNKNOWN DATE
 #this is made by a 15 year old in his free time so dont take it too seriosly 
 #print("starting")
 class agoto:
+	def __init__(self):
+		pass
+		self.actionq = []  # list of actions to occur
+		self.output = []
+		self.memory = []
+
 	actionq=[]#list of actions to occur
 	output=[]
 	#def help:#nothign yet
 	def incall(se,a,input):#make event in the input quene this is a library function
+		#print("quene"+str(se.actionq))
 		input.append(a)
 #print actionq
 	def act(se,x=1):#makes the nueral network go for an ammount of actions
@@ -158,6 +170,9 @@ class agoto:
 	#it goes like this 0.varw, 1.varr, 2.varcond, 3.cellT, 4.cellF, 5.cellOUT
 	cells=[[5, 1, 0, 1, 0,-10],[1,1,5,1,2,-11],[3,3,3,3,3,-12]]
 	def execell(se,cell):#execute the cell with this number
+		#print(cell)
+		#print(se.cells)
+		#print(se.memory)
 	#order of operations is as follows
 	#output is given if any
 	#any variable assignment is done

@@ -7,6 +7,7 @@ import random
 # 2. a random cell being added
 #this is missing many features that will be added after a working prototype is made
 def mutate(celldata,outputs):# takes code amount of outputs there are and size of memory array
+	celldata = codedesync(celldata)
         code,memsize=celldata
 	code = code[:]
 	#seperates it from reference
@@ -39,6 +40,14 @@ def randstf(inp):#gets random memory/output space given amount of spaces
 #print(newRcell(len(acode),outp,memsz))
 #print(newRcell(len(acode),outp,memsz))
 #print(newRcell(len(acode),outp,memsz))
+def codedesync(celldata):#desynchroniseds the arrays required because of the python problems with multidimensional arrays required for any coppying or manipulation of gotoxs
+	code,memsize=celldata
+	code=code[:]
+	c=0
+	while(c<len(code)):
+		code[c]=code[c][:]
+		c=c+1
+	return code,memsize
 
 #test of this library
 
